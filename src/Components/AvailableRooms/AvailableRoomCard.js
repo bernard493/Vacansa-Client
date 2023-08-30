@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
+import COLORS from "../../constants/style"
 const AvailableRoomCard = ({ item, toggle }) => {
   const {
     _id,
@@ -62,7 +62,7 @@ const AvailableRoomCard = ({ item, toggle }) => {
       <View className="py-2 flex-row items-center justify-between">
         <View className="space-y-1">
           <View className="flex-row  space-x-1">
-            <Text className="text-md font-bold text-[#12C6FF]">GH¢ {price}</Text>
+            <Text className={`text-md font-bold text-[${COLORS.primary}]`}>GH¢ {price}</Text>
             {discountPer && (
               <Text className="text-[10px] font-bold text-gray-400 line-through">
                 GH¢ {price * (discountPer / 100)}
@@ -75,7 +75,7 @@ const AvailableRoomCard = ({ item, toggle }) => {
         </View>
         <TouchableOpacity
           onPress={() => toggle(_id)}
-          className="py-3 px-4 bg-[#12C6FF] rounded-lg"
+          className={`py-3 px-4 bg-[${COLORS.primary}] rounded-lg`}
         >
           <Text className="text-white">Choose</Text>
         </TouchableOpacity>

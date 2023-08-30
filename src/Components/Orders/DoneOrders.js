@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Center, Skeleton, VStack, HStack } from "native-base";
 import { useDateConvert } from "../../CustomHooks/useDateConvert";
-
+import COLORS from "../../constants/style"
 const DoneOrders = ({ order }) => {
   const { room } = order;
   const [showDetails, setShowDetails] = useState(false);
@@ -157,7 +157,7 @@ const DoneOrders = ({ order }) => {
           <View className="flex items-center pt-4">
             <TouchableOpacity
               onPress={() => setShowDetails(!showDetails)}
-              className="bg-[#00D4AE] py-2 px-3 rounded-lg flex-row items-center justify-center space-x-3"
+              className={`bg-[${COLORS.primary}] py-2 px-3 rounded-lg flex-row items-center justify-center space-x-3`}
             >
               <Text className="text-white">More Details</Text>
               {showDetails ? (

@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import COLORS from "../../constants/style";
 
 const AuthInput = ({
   value,
@@ -32,13 +33,13 @@ const AuthInput = ({
           <Text className="text-[14px] font-bold">{inputName}</Text>
           <View
             className={`flex-row items-center  space-x-3 bg-gray-100  ${
-              isFocus ? "border-2 border-[#12C6FF]" : ""
+              isFocus ? `border-2 border-[${COLORS.primary}]`: ""
             } p-3  justify-between rounded-lg`}
           >
             <Ionicons
               name={icon}
               size={25}
-              color={`${isFocus ? "#12C6FF" : "gray"}`}
+              color={`${isFocus ? COLORS.primary : "gray"}`}
             />
             <TextInput
               value={value}
@@ -61,8 +62,8 @@ const AuthInput = ({
                 <Ionicons
                   name="eye"
                   size={23}
-                  color={`${isFocus ? "#12C6FF" : "gray"}`}
-                />
+                  color={`${isFocus ? COLORS.primary : "gray"}`}
+                  />
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
@@ -86,13 +87,13 @@ const AuthInput = ({
           <Text className="text-[14px] font-bold">{inputName}</Text>
           <View
             className={`flex-row items-center  space-x-3 bg-gray-100  ${
-              isFocus ? "border-2 border-[#12C6FF]" : ""
+              isFocus ?  `border-2 border-[${COLORS.primary}]` : ""
             } p-3  justify-between rounded-lg`}
           >
             <Ionicons
               name={icon}
               size={25}
-              color={`${isFocus ? "#12C6FF" : "gray"}`}
+              color={`${isFocus ? COLORS.primary : "gray"}`}
             />
             <TextInput
               value={value}

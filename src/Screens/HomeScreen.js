@@ -10,16 +10,14 @@ import {
 import React, { useEffect, useState, useCallback } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import CarouselCards from "../Components/CarouselCard/CarouselCards ";
-import { getAuth, signOut } from "firebase/auth";
-import { auth, db } from "../../firebase";
 import { useNavigation } from "@react-navigation/native";
-import * as SecureStore from "expo-secure-store";
 import PopularHotels from "../Components/PopularHotels/PopularHotels";
 import Recommended from "../Components/Recommended/Recommended";
 import { Avatar } from "native-base";
 import { useSelector } from "react-redux";
 import * as Location from "expo-location";
 import { getAllPopularHotels } from "../api/Hotel_Api";
+import COLORS from "../constants/style"
 // import { useSelector, useDispatch } from "react-redux";
 // import { setUserProfile } from "../redux/features/User/userSlice";
 
@@ -88,7 +86,7 @@ const HomeScreen = () => {
         </View>
         <View className="flex-row items-center justify-between ">
           <View className="flex-row items-center justify-center border-2 border-gray-300 p-1 px-2  space-x-3 rounded-lg">
-            <Ionicons name="location" size={15} color={"#12C6FF"} />
+            <Ionicons name="location" size={15} color={COLORS.primary} />
             <Text className="text-[11px] font-semibold text-gray-600">
               {/* {city} */}
             </Text>

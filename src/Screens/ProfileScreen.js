@@ -22,7 +22,7 @@ import ProfileUpdateModel from "../Components/Models/UserProfileModel/ProfileUpd
 import Toast from "react-native-toast-message";
 import * as ImagePicker from "expo-image-picker";
 import { UpdateUserProfile, UpdateUserProfileAvatar } from "../api/user_Api";
-
+import COLORS from "../constants/style"
 const initialState = {
   selectedTap: "collections",
   allFavorite: [],
@@ -269,7 +269,7 @@ const ProfileScreen = () => {
             <View
               className={`${
                 state.selectedTap === "collections"
-                  ? "border-b-4 border-[#12C6FF]"
+                  ? `border-b-4 border-[${COLORS.primary}`
                   : ""
               }`}
             />
@@ -295,7 +295,7 @@ const ProfileScreen = () => {
             <View
               className={`${
                 state.selectedTap === "settings"
-                  ? "border-b-4 border-[#12C6FF]"
+                  ? `border-b-4 border-[${COLORS.primary}`
                   : ""
               }`}
             />
@@ -322,7 +322,7 @@ const ProfileScreen = () => {
         <View className="py-7">
           <TouchableOpacity
             onPress={logoutUser}
-            className="bg-[#12C6FF] h-12 flex items-center justify-center rounded-lg"
+            className={`bg-[${COLORS.primary}] h-12 flex items-center justify-center rounded-lg`}
           >
             <Text className="text-white text-md font-semibold">logout</Text>
           </TouchableOpacity>

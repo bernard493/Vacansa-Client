@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import DatePicker, { getFormatedDate } from "react-native-modern-datepicker";
 import moment from "moment";
-
+import COLORS from "../../../constants/style"
 const BookingDateModel = ({
   bookingDate,
   openBookingDateModel,
@@ -45,7 +45,7 @@ const BookingDateModel = ({
             />
             <TouchableOpacity
               onPress={() => setOpenBookingDateModel(!openBookingDateModel)}
-              className='p-2 bg-[#12C6FF] rounded-xl'
+              className={`p-2 bg-[${COLORS.primary}] rounded-xl`}
             >
               <Text style={styles.textStyle}>save</Text>
             </TouchableOpacity>

@@ -1,6 +1,6 @@
 import { View, Animated, useWindowDimensions, StyleSheet } from "react-native";
 import React from "react";
-
+import COLORS from "../../constants/style"
 const OnboardingPaginator = ({ data, scrollX }) => {
   const { width } = useWindowDimensions();
   return (
@@ -19,7 +19,7 @@ const OnboardingPaginator = ({ data, scrollX }) => {
         });
         return (
           <Animated.View
-            style={[styles.dot, { width: dotWidth, opacity }]}
+            style={[styles.dot, { width: dotWidth, opacity , backgroundColor: COLORS.primary,}]}
             key={i.toString()}
           />
         );
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   dot: {
     height: 5,
     borderRadius: 5,
-    backgroundColor: "#12C6FF",
     marginHorizontal: 8,
   },
 });

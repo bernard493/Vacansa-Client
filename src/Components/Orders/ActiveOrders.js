@@ -4,6 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Center, Skeleton, VStack, HStack } from "native-base";
 import { useDateConvert } from "../../CustomHooks/useDateConvert";
 import { TouchableOpacity } from "react-native";
+import COLORS  from "../../constants/style"
 
 const ActiveOrders = ({ order }) => {
   const { room } = order;
@@ -56,7 +57,7 @@ const ActiveOrders = ({ order }) => {
               Grand Deluks Double
             </Text>
             <View className="flex-row items-center space-x-2">
-              <Ionicons name="people-outline" size={18} color={"#12C6FF"} />
+              <Ionicons name="people-outline" size={18} color={COLORS.primary} />
               <Text className="text-gray-500 font-semibold text-[12px]">
                 {room.bed}, {room.guests} Adults
               </Text>
@@ -153,7 +154,7 @@ const ActiveOrders = ({ order }) => {
           <View className="flex items-center pt-5">
             <TouchableOpacity
               onPress={() => setShowDetails(!showDetails)}
-              className="bg-[#12C6FF] py-2 px-3 rounded-lg flex-row items-center justify-center space-x-3 animate-bounce"
+              className={`bg-[${COLORS.primary}] py-2 px-3 rounded-lg flex-row items-center justify-center space-x-3 animate-bounce`}
             >
               <Text className="text-white">More Details</Text>
               {showDetails ? (

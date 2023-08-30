@@ -1,3 +1,4 @@
+import SCREENS from "../constants/screens";
 import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -19,19 +20,21 @@ import OrderConfirmationScreen from "../Screens/OrderConfirmationScreen";
 import * as SecureStore from "expo-secure-store";
 import { getAllOrders } from "../api/Order_Api";
 import { useDispatch } from "react-redux";
-import {setAllOrders, setOrdersTotalCount} from "../redux/features/ordersSlice/"
-
+import {
+  setAllOrders,
+  setOrdersTotalCount,
+} from "../redux/features/ordersSlice/";
+import COLORS from "../constants/style";
 const Stack = createNativeStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
 //  Button TaBars on HomeScreen
 const TapNavigation = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [allOrdersCount, setAllOrdersCount] = useState();
   const [allNotifications, setAllNotifications] = useState(2);
 
-  
   useEffect(() => {
     const getOrders = async () => {
       getAllOrders().then(async (response) => {
@@ -56,14 +59,12 @@ const TapNavigation = () => {
     if (allOrdersCount === undefined) {
       getOrders();
     }
-  }, [allOrdersCount]);
-
+  }, []);
 
   return (
     <Tab.Navigator
       initialRouteName="HomeScreen"
-      screenOptions={
-        ({ route }) => ({
+      screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           let routeName = route.name;
@@ -82,13 +83,14 @@ const TapNavigation = () => {
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-      })
-      
-    }
-      activeColor="#12C6FF"
-      inactiveColor="#696969"
-      
-      barStyle={{ backgroundColor: "#FFFAFA", fontSize: 10  }}
+      })}
+      activeColor={COLORS.primary}
+      // inactiveColor="#696969"
+
+      barStyle={{
+        backgroundColor: "#FFFAFA",
+        fontSize: 10,
+      }}
     >
       <Tab.Screen
         name="HomeScreen"
@@ -103,7 +105,7 @@ const TapNavigation = () => {
         component={HistoryScreen}
         options={{
           title: "My Booking",
-          tabBarBadge: allOrdersCount !== 0 ? allOrdersCount :  null ,
+          tabBarBadge: allOrdersCount !== 0 ? allOrdersCount : null,
         }}
       />
       <Tab.Screen
@@ -111,7 +113,7 @@ const TapNavigation = () => {
         component={NotificationScreen}
         options={{
           title: "Notification",
-          tabBarBadge: allNotifications  !== 0 ? allNotifications :  null,
+          tabBarBadge: allNotifications !== 0 ? allNotifications : null,
         }}
       />
       <Tab.Screen
@@ -124,21 +126,41 @@ const TapNavigation = () => {
     </Tab.Navigator>
   );
 };
-//  Screens
 const StackNavigation = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={TapNavigation} />
-      <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="HotelDetails" component={HotelDetailScreen} />
-      <Stack.Screen name="AvailableRooms" component={AvailableRoomsScreen} />
-      <Stack.Screen name="SelectedRoom" component={SelectedRoomDetailScreen} />
-      <Stack.Screen name="ConfirmBookingDetails" component={BookingDetailScreen} />
-      <Stack.Screen name="Settings" component={ProfileSettingsScreen} />
-      <Stack.Screen name="Payment" component={PaymentScreen} />
+    <Stack.Navigator screenOptions={{ headerShown: false }} lazy>
+      <Stack.Screen name={SCREENS.Home} component={TapNavigation} />
+      <Stack.Screen name={SCREENS.Search} component={SearchScreen} />
       <Stack.Screen
-        name="OrderConfirmation"
+        name={SCREENS.HotelDetails}
+        component={HotelDetailScreen}
+        lazy
+      />
+      <Stack.Screen
+        name={SCREENS.AvailableRooms}
+        component={AvailableRoomsScreen}
+        lazy
+      />
+      <Stack.Screen
+        name={SCREENS.SelectedRoom}
+        component={SelectedRoomDetailScreen}
+        lazy
+      />
+      <Stack.Screen
+        name={SCREENS.ConfirmBookingDetails}
+        component={BookingDetailScreen}
+        lazy
+      />
+      <Stack.Screen
+        name={SCREENS.Settings}
+        component={ProfileSettingsScreen}
+        lazy
+      />
+      <Stack.Screen name={SCREENS.Payment} component={PaymentScreen} lazy />
+      <Stack.Screen
+        name={SCREENS.OrderConfirmation}
         component={OrderConfirmationScreen}
+        lazy
       />
     </Stack.Navigator>
   );

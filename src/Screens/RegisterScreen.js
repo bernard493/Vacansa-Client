@@ -16,7 +16,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { showMessage } from "react-native-flash-message";
 import { useDispatch } from "react-redux";
-
+import COLORS from "../constants/style";
 import { setUser } from "../redux/features/User/userSlice";
 import {
   Spinner,
@@ -270,8 +270,8 @@ const RegisterScreen = () => {
         <View>
           <TouchableOpacity
             onPress={handelRegister}
-            className="bg-[#12C6FF] h-12 flex items-center justify-center rounded-lg"
-          >
+            className={`bg-[${COLORS.primary}] h-12 flex items-center justify-center rounded-lg`}
+            >
             {state.loggingIn ? (
               <HStack space={2} justifyContent="center">
                 <Spinner accessibilityLabel="Loading posts" color="white" />
@@ -302,7 +302,7 @@ const RegisterScreen = () => {
           <Text className="text-md text-gray-500 font-semibold">
             Already have an account?{" "}
             <Text
-              className="text-[#12C6FF] font-bold"
+              className={`text-[${COLORS.primary}] font-bold`}
               onPress={() => navigate.navigate("Login")}
             >
               Login

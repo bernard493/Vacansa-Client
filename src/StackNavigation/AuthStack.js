@@ -5,7 +5,8 @@ import Onboarding from "../Components/Onboarding/Onboarding";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
-
+// The AuthStack function is responsible for defining the navigation stack for the
+//  authentication screens in the app.
 const AuthStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>

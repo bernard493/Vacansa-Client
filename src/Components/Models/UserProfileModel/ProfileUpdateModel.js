@@ -8,7 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Modal from "react-native-modal";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
+import COLORS from "../../../constants/style"
 const TextInputComponent = ({
   inputName,
   icon,
@@ -32,13 +32,13 @@ const TextInputComponent = ({
       <Text className="text-[14px] font-bold">{inputName}</Text>
       <View
         className={`flex-row items-center  space-x-3 bg-gray-100  ${
-          isFocus ? "border-2 border-[#12C6FF]" : ""
+          isFocus ? `border-2 border-[${COLORS.primary}]` : ""
         } p-3  justify-between rounded-lg`}
       >
         <Ionicons
           name={icon}
           size={25}
-          color={`${isFocus ? "#12C6FF" : "gray"}`}
+          color={`${isFocus ? COLORS.primary : "gray"}`}
         />
         <TextInput
           value={value}
@@ -124,7 +124,7 @@ const ProfileUpdateModel = ({
           <View className="p-5 absolute bottom-5 w-full">
             <TouchableOpacity
               onPress={updateUserInfor}
-              className="bg-[#12C6FF] h-12 flex items-center justify-center rounded-lg"
+              className={`bg-[${COLORS.primary}] h-12 flex items-center justify-center rounded-lg`}
             >
               <Text className="text-white text-md font-semibold">Save</Text>
             </TouchableOpacity>

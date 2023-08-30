@@ -2,7 +2,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
-
+import COLORS from "../../constants/style"
 const PopularHotelCard = ({ item }) => {
   const navigate = useNavigation();
   const { hotel } = item;
@@ -35,7 +35,7 @@ const PopularHotelCard = ({ item }) => {
         </Text>
         <View className="flex-row items-center justify-between ">
           <View className="flex-row items-center justify-start space-x-1">
-            <Ionicons name="location" size={20} color={"#12C6FF"} />
+            <Ionicons name="location" size={20} color={COLORS.primary} />
             <Text className="text-gray-500  text-[12px]">{hotel.address}</Text>
           </View>
           <View>

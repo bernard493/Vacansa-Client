@@ -21,10 +21,10 @@ import {
   Checkbox,
   ScrollView,
 } from "native-base";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { PaymentIcon } from "react-native-payment-icons";
 import { useSelector } from "react-redux";
 import { createOrder } from "../api/Order_Api";
+import COLORS from '../constants/style'
 
 const cards = [
   {
@@ -50,7 +50,6 @@ const PaymentScreen = ({ route }) => {
   const [isError, setIsError] = useState(false);
   const [refreshing, setRefreshing] = React.useState(false);
 
-  console.log("orderInfor", orderInfor);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -323,7 +322,7 @@ const PaymentScreen = ({ route }) => {
           <View className="p-3 px-6 pb-5  flex-row items-center justify-between  absolute bottom-0 bg-[#F8F8FF] w-full">
             <View className="space-y-2">
               <View className="flex-row items-center space-x-1">
-                <Text className="text-[15px] font-bold text-[#12C6FF]">
+                <Text className={`text-[15px] font-bold text-[${COLORS.primary}]`}>
                   GH₵ {totalAmount}
                 </Text>
                 <Text className="text-gray-400 text-[12px] font-semibold">
@@ -333,7 +332,7 @@ const PaymentScreen = ({ route }) => {
             </View>
             <TouchableOpacity
               onPress={handleMakePayment}
-              className="bg-[#12C6FF] flex items-center py-4 rounded-lg  px-4"
+              className={`bg-[${COLORS.primary}] flex items-center py-4 rounded-lg  px-4`}
             >
               <Text className="text-white font-bold ">
                 {paymentMethod === "Cash" ? "Confirm booking" : "Pay Now"}

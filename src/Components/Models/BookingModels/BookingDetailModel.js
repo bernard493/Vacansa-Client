@@ -9,7 +9,7 @@ import {
   View,
   TextInput,
 } from "react-native";
-
+import COLORS from "../../../constants/style"
 const BookingDetailModel = ({
   openModel,
   setOpenModel,
@@ -45,7 +45,7 @@ const BookingDetailModel = ({
                 Booking Details
               </Text>
               <TouchableOpacity
-                className="text-[#12C6FF] font-bold text-[13px]"
+                className=" font-bold text-[13px]"
                 onPress={cancelModel}
               >
                 <Text className="font-semibold text-red-500">Cancel</Text>
@@ -133,7 +133,7 @@ const BookingDetailModel = ({
             </View>
             <View className="flex-row items-center justify-end">
               <TouchableOpacity
-                className="py-2 px-4 bg-[#12C6FF]  rounded-lg"
+                className={`py-2 px-4 bg-[${COLORS.primary}]  rounded-lg`}
                 onPress={() => setOpenModel(false)}
               >
                 <Text className="text-white font-semibold text-[13px]">

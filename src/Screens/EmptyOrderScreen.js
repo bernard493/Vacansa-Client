@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import React from "react";
 import LottieView from "lottie-react-native";
-
+import COLORS from "../constants/style"
 const EmptyOrderScreen = () => {
   return (
     <SafeAreaView>
@@ -23,7 +23,7 @@ const EmptyOrderScreen = () => {
           </Text>
         </View>
         <View>
-          <TouchableOpacity className="bg-[#12C6FF] flex items-center py-3 rounded-lg  px-6">
+          <TouchableOpacity className={`bg-[${COLORS.primary}] flex items-center py-3 rounded-lg  px-6`}>
             <Text className="text-white font-bold">Book a Hotel</Text>
           </TouchableOpacity>
         </View>
@@ -31,7 +31,7 @@ const EmptyOrderScreen = () => {
         <View className="flex-row space-x-1">
           <Text>Cant find your booking? </Text>
           <TouchableOpacity>
-            <Text className="text-[#12C6FF]  font-bold">Get Help</Text>
+            <Text className={`text-[${COLORS.primary}]  font-bold`}>Get Help</Text>
           </TouchableOpacity>
         </View>
       </View>

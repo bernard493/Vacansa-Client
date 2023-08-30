@@ -13,11 +13,12 @@ import popularHotelData from "../Components/PopularHotels/popularHotelData";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Center, Skeleton, VStack, HStack } from "native-base";
 import BookingDetailModel from "../Components/Models/BookingModels/BookingDetailModel";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDateConvert } from "../CustomHooks/useDateConvert";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart } from "../redux/features/cartSlice";
 import { getRoomById } from "../api/Hotel_Api";
+import COLORS from '../constants/style'
+
 
 const BookingDetailScreen = ({ route }) => {
   const navigate = useNavigation();
@@ -206,7 +207,7 @@ const BookingDetailScreen = ({ route }) => {
                         setBookingDetailModelVisible(!bookingDetailModelVisible)
                       }
                     >
-                      <Text className="text-[#12C6FF] font-bold text-[13px]">
+                      <Text className={`text-[${COLORS.primary}] font-bold text-[13px]`}>
                         Edit
                       </Text>
                     </TouchableOpacity>
@@ -280,7 +281,7 @@ const BookingDetailScreen = ({ route }) => {
                 </View>
               ) : (
                 <View className="flex-row items-center space-x-2">
-                  <Text className="text-[13px] font-bold text-[#12C6FF]  ">
+                  <Text className={`text-[13px] font-bold text-[${COLORS.primary}]`}>
                     GH¢ {hotelRoom.price}
                   </Text>
                   <Text className="text-gray-400 text-[8px] font-semibold">
@@ -291,7 +292,7 @@ const BookingDetailScreen = ({ route }) => {
             </View>
             <TouchableOpacity
               onPress={handleMakePayment}
-              className="bg-[#12C6FF] flex items-center py-4 rounded-lg  px-6"
+              className={`bg-[${COLORS.primary}] flex items-center py-4 rounded-lg  px-6`}
             >
               <Text className="text-white font-bold ">Continue</Text>
             </TouchableOpacity>

@@ -2,7 +2,7 @@ import { View, Animated, TouchableOpacity } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
 import Svg, { Circle, G } from "react-native-svg";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
+import COLORS from "../../constants/style"
 const OnboardingNextButton = ({ percentage ,buttonScrollTo }) => {
   const progressAnimation = useRef(new Animated.Value(0)).current;
   const progressRef = useRef(null);
@@ -53,7 +53,7 @@ const OnboardingNextButton = ({ percentage ,buttonScrollTo }) => {
             cx={center}
             cy={center}
             r={radius}
-            stroke="#12C6FF"
+            stroke={COLORS.primary}
             strokeWidth={strokeWidth}
             strokeDasharray={circumference}
           />
@@ -62,7 +62,7 @@ const OnboardingNextButton = ({ percentage ,buttonScrollTo }) => {
       <TouchableOpacity
       onPress={buttonScrollTo}
         activeOpacity={0.6}
-        className="absolute bg-[#12C6FF] p-3  rounded-full"
+        className={`absolute bg-[${COLORS.primary}] p-3  rounded-full`}
       >
         <Ionicons
           name="arrow-forward-outline"

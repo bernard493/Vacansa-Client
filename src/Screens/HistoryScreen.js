@@ -16,15 +16,14 @@ import DoneOrders from "../Components/Orders/DoneOrders";
 import { Center, Skeleton, VStack, HStack } from "native-base";
 import EmptyOrderScreen from "./EmptyOrderScreen";
 import { useSelector } from "react-redux";
-
 const HistoryScreen = () => {
   const [selectedTap, setSelectedTap] = useState("activeOrders");
-  const { allOrders, ordersTotalCount } = useSelector((state) => state.orders);
-  const [totalCompletedOrdersCount ,seTotalCompletedOrdersCount] = useState(0)
+  const { allOrders, ordersTotalCount } = useSelector(({ orders }) => orders);
+  const [totalCompletedOrdersCount, setTotalCompletedOrdersCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [refreshing, setRefreshing] = React.useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
-  
+
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -32,38 +31,23 @@ const HistoryScreen = () => {
     }, 2000);
   }, []);
 
-  // useEffect(() => {
-  //   const getOrders = async () => {
-  //     getAllOrders().then(async (response) => {
-  //       try {
-  //         setLoading(true);
-  //         const orders = response.data?.orders;
-
-  //         if (response.status !== 200) {
-  //           console.log("no orders");
-  //           setLoading(false);
-  //         } else {
-  //           setAllOrders(orders);
-  //           setLoading(false);
-
-  //           // await SecureStore.setItemAsync("orders", JSON.stringify(orders));
-  //         }
-  //       } catch (error) {
-  //         console.error(error);
-  //         setLoading(false);
-  //       }
-  //     });
-  //   };
-  //   getOrders();
-  // }, []);
-
-  useEffect(() => {
+  const animateFadeAnim = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: true,
     }).start();
-  }, [fadeAnim, selectedTap]);
+  };
+
+  const handleEvent = () => {
+    // handle the specific event that triggers the animation
+    animateFadeAnim();
+  };
+
+  useEffect(() => {
+    handleEvent();
+  }, [selectedTap]);
+
   return (
     <SafeAreaView className="bg-white flex-1 pt-10 ">
       <View className="px-5 pt-5">

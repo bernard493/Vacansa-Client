@@ -23,7 +23,7 @@ import {
   NativeBaseProvider,
 } from "native-base";
 import { showMessage } from "react-native-flash-message";
-
+import COLORS from "../constants/style";
 import { userLogin } from "../api/user_Api";
 import AuthInput from "../Components/InputComponents/AuthInput";
 
@@ -183,7 +183,7 @@ const LoginScreen = () => {
           <View>
             <TouchableOpacity
               onPress={handleUserLogin}
-              className="bg-[#12C6FF] h-12 flex items-center justify-center rounded-lg"
+              className={`bg-[${COLORS.primary}] h-12 flex items-center justify-center rounded-lg`}
               disabled={state.loggingIn}
             >
               {state.loggingIn ? (
@@ -218,7 +218,7 @@ const LoginScreen = () => {
             <Text className="text-md text-gray-500 font-semibold">
               Don't have an account?{"  "}
               <Text
-                className="text-[#12C6FF] font-bold"
+                className={`text-[${COLORS.primary}] font-bold`}
                 onPress={() => navigate.navigate("Register")}
               >
                 Sing Up

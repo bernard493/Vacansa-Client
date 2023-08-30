@@ -19,6 +19,9 @@ import HotelDetailReviewUserImage from "../Components/HotelDetail/HotelDetailRev
 import { Center, Skeleton, VStack, HStack } from "native-base";
 import { getAllHotelReviews } from "../api/Review_Api";
 import useHotelData from "../CustomHooks/useHotelData"
+import COLORS from "../constants/style"
+
+
 const HotelDetailScreen = ({ route }) => {
   const navigate = useNavigation();
   const { hotelId } = route.params;
@@ -125,7 +128,7 @@ const HotelDetailScreen = ({ route }) => {
                   </Text>
                   <View className="flex-row items-center justify-center space-x-1 space-y-1">
                     <View>
-                      <Ionicons name="location" size={17} color={"#00D4AE"} />
+                      <Ionicons name="location" size={17} color={COLORS.primary} />
                     </View>
                     <View>
                       <Text className="text-gray-100 font-semibold text-[12px]">
@@ -228,7 +231,7 @@ const HotelDetailScreen = ({ route }) => {
           <View className=" px-5  py-7 bottom-0  flex items-center bg-[#F8F8FF] w-full">
             <TouchableOpacity
               onPress={handleAvailableRoomCheck}
-              className="bg-[#12C6FF] flex items-center py-4 rounded-lg w-full"
+              className={`bg-[${COLORS.primary}] flex items-center py-4 rounded-lg w-full`}
             >
               <Text className="text-white font-bold ">
                 Check Available Room

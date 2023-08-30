@@ -16,12 +16,11 @@ import popularHotelData from "../Components/PopularHotels/popularHotelData";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { ScrollView } from "native-base";
 import AvailableRoomCard from "../Components/AvailableRooms/AvailableRoomCard";
-import moment from "moment";
 import BookingDateModel from "../Components/Models/BookingModels/BookingDateModel";
 import { Center, Skeleton, VStack, HStack } from "native-base";
 import { useDateConvert } from "../CustomHooks/useDateConvert";
 import { getHotelRoomsById } from "../api/Hotel_Api";
-
+import COLORS from "../constants/style"
 //   Trying to pass down props to open model
 
 const AvailableRoomsScreen = ({ route }) => {
@@ -134,7 +133,7 @@ const AvailableRoomsScreen = ({ route }) => {
           {checkingInDate && (
             <Animated.View
               style={animatedScaleStyle}
-              className="bg-[#12C6FF] p-4 space-y-1"
+              className={`bg-[${COLORS.primary}] p-4 space-y-1`}
             >
               <Text className="text-white font-bold">Plan to stay</Text>
               <View className="flex-row items-center justify-between">
@@ -207,7 +206,7 @@ const AvailableRoomsScreen = ({ route }) => {
                       Check in
                     </Text>
                     <View className="flex-row items-center justify-left space-x-2 pr-5">
-                      <Ionicons name="calendar" color={"#12C6FF"} size={20} />
+                      <Ionicons name="calendar" color={COLORS.primary} size={20} />
                       {openBookingCheckingInDateModel ? (
                         <BookingDateModel
                           bookingDate={checkingInDate}
@@ -245,7 +244,7 @@ const AvailableRoomsScreen = ({ route }) => {
                       Check Out
                     </Text>
                     <View className="flex-row items-center justify-left space-x-2 pr-5">
-                      <Ionicons name="calendar" color={"#12C6FF"} size={20} />
+                      <Ionicons name="calendar" color={COLORS.primary} size={20} />
                       {openBookingCheckingOutDateModel ? (
                         <BookingDateModel
                           bookingDate={checkingOutDate}
@@ -280,7 +279,7 @@ const AvailableRoomsScreen = ({ route }) => {
                 <View className="p-5   flex items-center  w-full">
                   <TouchableOpacity
                     onPress={handleSaveChanges}
-                    className="bg-[#12C6FF] flex items-center py-4 rounded-lg w-full"
+                    className={`bg-[${COLORS.primary}] flex items-center py-4 rounded-lg w-full`}
                   >
                     <Text className="text-white font-bold ">Continue</Text>
                   </TouchableOpacity>

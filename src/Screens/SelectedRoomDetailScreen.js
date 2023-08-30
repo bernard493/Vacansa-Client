@@ -13,11 +13,11 @@ import popularHotelData from "../Components/PopularHotels/popularHotelData";
 import SelectedRoomImageCard from "../Components/SelectedRoom/SelectedRoomImageCard";
 import { Center, Skeleton, VStack } from "native-base";
 import { getRoomById } from "../api/Hotel_Api";
+import COLORS from "../constants/style"
 
 const SelectedRoomDetailScreen = ({ route }) => {
   const navigate = useNavigation();
-  const { hotelId, hotelRoomId, checkingInDate, checkingOutDate } =
-    route.params;
+  const { hotelId, hotelRoomId, checkingInDate, checkingOutDate } = route.params;
   const [hotelRoom, setHotelRoom] = useState({});
   const [discountPrice, setDiscountPrice] = useState(0);
   const [bookingPrice, setBookingPrice] = useState(0);
@@ -176,7 +176,7 @@ const SelectedRoomDetailScreen = ({ route }) => {
                 </View>
               ) : (
                 <View className="flex-row items-center space-x-2">
-                  <Text className="text-[13px] font-bold text-[#12C6FF]  ">
+                  <Text className={`text-[13px] font-bold text-[${COLORS.primary}]`}>
                     GH¢ {hotelRoom.price}
                   </Text>
                   <Text className="text-gray-400 text-[10px] font-semibold">
@@ -187,7 +187,7 @@ const SelectedRoomDetailScreen = ({ route }) => {
             </View>
             <TouchableOpacity
               onPress={handleBooking}
-              className="bg-[#12C6FF] flex items-center py-4 rounded-lg  px-6"
+              className={`bg-[${COLORS.primary}] flex items-center py-4 rounded-lg  px-6`}
             >
               <Text className="text-white font-bold ">Book Now</Text>
             </TouchableOpacity>
